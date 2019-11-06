@@ -10,12 +10,12 @@ import basic.Square;
 public class WriteOutSquaresInJSON {
 	
 	public static void writeOut(String filePath, LinkedList<Square> list, double xScale, double yScale) {
-		File map = new File(filePath.substring(0, filePath.length()-4) + "JSON.txt");
+		File labelsList = new File(filePath.substring(0, filePath.length()-4) + "JSON.txt");
 		try {
-			if (!map.exists()) {
-				map.createNewFile();
+			if (!labelsList.exists()) {
+				labelsList.createNewFile();
 			}
-			PrintWriter pw = new PrintWriter(map);
+			PrintWriter pw = new PrintWriter(labelsList);
 			Square current;
 			int index = 0;
 			while (index < list.size()) {

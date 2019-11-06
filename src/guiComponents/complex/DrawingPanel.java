@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import basic.Coordinate;
 import basic.Square;
 import guiComponents.basic.TagLabel;
+import guiComponents.graphics.DrawImage;
 import guiComponents.graphics.DrawSquares;
 import standalone.LoadImage;
 
@@ -114,7 +115,7 @@ public class DrawingPanel extends JPanel {
 			public void keyPressed(KeyEvent arg0) {
 				switch (arg0.getKeyCode()) {
 				case KeyEvent.VK_Z:
-					if (arg0.isControlDown() && squares.size() % 2 == 0 && squares.size() > 1) {
+					if (squares.size() > 0) {
 						squares.remove(squares.size() - 1);
 						removeTagLabel();
 					}
@@ -146,22 +147,13 @@ public class DrawingPanel extends JPanel {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		drawImage(g);
+		DrawImage.drawImage(g, image, this);
 		DrawSquares.drawSquares(squares, g);
 		if (tempStart != null) {
 			DrawSquares.drawSquare(tempStart, tempCurrent, g);
 		}
 	}
 
-	/**
-	 * Draws the specified image onto the DrawingPanel. A valid file path must be
-	 * provided first.
-	 */
-	private void drawImage(Graphics g) {
-		if (image != null) {
-			g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), null);
-		}
-	}
 
 	/**
 	 * Set the scales of the labeling boxes. If an image must be scaled to fit

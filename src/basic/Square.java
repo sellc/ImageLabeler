@@ -67,7 +67,7 @@ public class Square {
 	}
 		
 	public String toJSON(double xScale, double yScale) {
-		return "{label:" + label + "," + "x1:" + (int)(x1*xScale) + "," + "y1:" + (int)(y1*xScale) + "," + "x2:" + (int)(x2*xScale) + "," + "y2:" + (int)(y2*xScale) + "}";
+		return "{\"label\":" + label + "," + "\"x1\":" + (int)(x1*xScale) + "," + "\"y1\":" + (int)(y1*xScale) + "," + "\"x2\":" + (int)(x2*xScale) + "," + "\"y2\":" + (int)(y2*xScale) + "}";
 	}
 
 	public String toString() {
